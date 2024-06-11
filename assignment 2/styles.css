@@ -1,0 +1,360 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('trackerwallpaper.png') no-repeat center center fixed;
+  background-size: cover;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.title {
+  text-align: center;
+  font-size: 3rem;
+  color: white;
+  margin-top: 100px;
+}
+
+:root {
+  --bg-color: black;
+  --text-color: black;
+  --main-color: rgb(0, 140, 255);
+}
+
+body {
+  display: flex;
+  
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+
+h1 {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+main {
+  max-width: 600px;
+  width: 100%;
+  margin: 1rem auto;
+  background-color: white;
+  padding: 1rem;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+header {
+  background-color: var(--main-color);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+header div {
+  padding: 5px;
+}
+
+header div:first-child {
+  flex-basis: 100%;
+  font-size: 2.25rem;
+  font-weight: 600;
+}
+
+header div:nth-child(n + 2) {
+  flex-basis: 50%;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+header h5 {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.expense, .income {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+}
+
+
+
+form input:not(#type),
+form button {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgb(32, 32, 41);
+  border-radius: 5px;
+  margin-bottom: 5px;
+  height: 42px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+}
+
+form button {
+  background-color: var(--main-color);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+form div:nth-child(-n + 2) {
+  flex-basis: 100%;
+}
+
+form div:nth-child(n + 3) {
+  flex-basis: calc(50% - 5px);
+}
+
+input#type {
+  appearance: none;
+  position: absolute;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 10px;
+  background: rgb(0, 140, 255);;
+  border-radius: 5px;
+  position: relative;
+}
+
+.option span {
+  width: 50%;
+  text-align: center;
+  cursor: pointer;
+  z-index: 2;
+  padding: 0px 113px; /* Adjust this value to increase/decrease the distance */
+}
+
+.option::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 0;
+  background-color: white;
+  height: calc(100% - 10px);
+  width: calc(50% - 10px);
+  transform: translateX(5px);
+  border-radius: inherit;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  transition: all 200ms;
+}
+
+input#type:checked ~ .option::before {
+  left: 50%;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 5px 10px;
+  position: relative;
+}
+
+ul li:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.name {
+  flex: 1;
+}
+
+.name h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  
+  text-transform: capitalize;
+}
+
+.name p {
+  font-size: 0.8rem;
+  color: black;
+}
+
+.amount {
+  font-weight: 600;
+}
+
+.amount.income {
+  color: yellowgreen;
+}
+
+.amount.expense {
+  color: red;
+}
+
+.action {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: red;
+  color: white;
+  height: 100%;
+  width: 50px;
+  display: grid;
+  place-items: center;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: all 300ms;
+}
+
+ul li:hover .action {
+  transform: scaleX(1);
+}
+
+.action svg {
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+}
+
+#status {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.action button {
+  background-color: var(--main-color);
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-right: 5px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.action button:hover {
+  background-color: darkblue;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.form-container h2 {
+  margin-bottom: 1.5rem;
+}
+
+.form-container input, .form-container button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid rgb(32, 32, 41);
+  border-radius: 5px;
+}
+
+.form-container button {
+  background-color: var(--main-color);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.form-container button:hover {
+  background-color: darkblue;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+#tracker-container {
+  display: none;
+  width: 100%;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .form-container, main {
+    padding: 1rem;
+  }
+
+  .header {
+    flex-direction: column;
+  }
+
+  .header div {
+    flex-basis: 100%;
+    text-align: center;
+  }
+
+  .option span {
+    padding: 0 10px; /* Adjust for mobile view */
+  }
+
+  ul li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .amount {
+    align-self: flex-end;
+  }
+
+  .action {
+    width: 100%;
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+
+  ul li:hover .action {
+    transform: scaleY(1);
+  }
+}

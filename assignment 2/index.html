@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign in & Expense Tracker</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <!-- Background -->
+    <div class="background"></div>
+
+    <!-- Sign-Up Form -->
+    <div id="signup-form" class="form-container" style="display: none;">
+        <h2>Sign Up</h2>
+        <input type="text" id="signup-fullname" placeholder="Full Name" required>
+        <input type="text" id="signup-username" placeholder="Username" required>
+        <input type="password" id="signup-password" placeholder="Password" required>
+        <button onclick="signUp()">Sign Up</button>
+        <button onclick="showSignIn()">Go to Sign In</button>
+    </div>
+
+    <!-- Sign-In Form -->
+    <div id="signin-form" class="form-container">
+        <h2>Sign In</h2>
+        <input type="text" id="signin-username" placeholder="Username" required>
+        <input type="password" id="signin-password" placeholder="Password" required>
+        <button onclick="signIn()">Sign In</button>
+        <button onclick="showSignUp()">Go to Sign Up</button>
+        <p id="signin-error" class="error-message"></p>
+    </div>
+
+    <!-- Expense Tracker -->
+    <div id="tracker-container" class="tracker-container" style="display: none;">
+        <h1 class="title">EXPENSE TRACKER</h1>
+        <main>
+            <header>
+                <div>
+                    <h5>Total Expenses</h5>
+                    <span id="balance">RM0.00</span>
+                </div>
+                <div>
+                    <h5>Income</h5>
+                    <span id="income">RM0.00</span>
+                </div>
+                <div>
+                    <h5>Expense</h5>
+                    <span id="expense">RM0.00</span>
+                </div>
+            </header>
+
+            <section>
+                <br><h3>Transactions</h3>
+                <ul id="transactionList"></ul>
+                <div id="status"></div>
+            </section>
+
+            <section>
+                <br><h3>Add Transaction</h3>
+                <form id="transactionForm">
+                    <div>
+                        <label for="type">
+                            <input type="checkbox" name="type" id="type" />
+                            <div class="option">
+                                <span class="option-item">Expense</span>
+                                <span class="option-item">Income</span>
+                            </div>
+                        </label>
+                    </div>
+                    <div>
+                        <label for="description">Description</label>
+                        <input type="text" name="description" class="form-control" required />
+                    </div>
+                    <div>
+                        <label for="amount">Amount</label>
+                        <input type="number" name="amount" class="form-control" value="0" min="0.01" step="0.01" required />
+                    </div>
+                    <div>
+                        <label for="date">Date</label>
+                        <input type="date" name="date" class="form-control" required />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </section>
+
+            <section>
+                <br><h3>Monthly Expenses Summary</h3>
+                <ul id="monthly-summary" class="list-group"></ul>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
